@@ -20,8 +20,16 @@ cd util-linux-2.24
 make nsenter
 cp nsenter /usr/local/bin
 ```
+Docker API:
+```
+# Docker-py needs the HTTP API
+echo 'DOCKER_OPTS="-H tcp://0.0.0.0:4243 -H unix:///var/run/docker.sock"' >> /etc/default/docker
+restart docker
+```
 
 ## Usage
+
+I usually drop it in /usr/local/bin/ minus .py
 
 ```
 usage: docker_access.py [-h] [-i] [-n] search_query
