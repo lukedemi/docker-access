@@ -6,6 +6,8 @@ from distutils import spawn
 
 c = docker.Client(base_url='unix://var/run/docker.sock', version='1.12', timeout=10)
 
+# This app needs nsenter to run, google around to find the easiest way to install
+# it on your system - it is probably not available as a package.
 if not spawn.find_executable('nsenter'):
     print "Please install nsenter on your system before using this script"
 
